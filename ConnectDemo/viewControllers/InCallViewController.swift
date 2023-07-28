@@ -25,18 +25,18 @@ class InCallViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        do {
-            try AVAudioSession.sharedInstance().setPrefersNoInterruptionsFromSystemAlerts(true)
-        } catch {
-            os_log("Error: %@", log: .default, type: .error, String(describing: error))
-        }
+//        do {
+//            try AVAudioSession.sharedInstance().setPrefersNoInterruptionsFromSystemAlerts(true)
+//        } catch {
+//            os_log("Error: %@", log: .default, type: .error, String(describing: error))
+//        }
         
         navigationController?.setNavigationBarHidden(true, animated: false)
         
         // keep app from sleeping during survey
         UIApplication.shared.isIdleTimerDisabled = true
         
-        doConnect()
+//        doConnect()
     }
     
     /**

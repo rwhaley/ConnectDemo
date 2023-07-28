@@ -16,7 +16,7 @@
 		F3A37BFE2A4F63A400165B85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A37BFC2A4F63A400165B85 /* LaunchScreen.storyboard */; };
 		F3A37C072A4F663A00165B85 /* InCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A37C062A4F663A00165B85 /* InCallViewController.swift */; };
 		F3A37C092A4F665700165B85 /* CallEndedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A37C082A4F665700165B85 /* CallEndedViewController.swift */; };
-		F3E3CA8A2A58AB7100246713 /* InCallUserNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3CA892A58AB7100246713 /* InCallUserNavigationViewController.swift */; };
+		F3E3CA8A2A58AB7100246713 /* InCallBottomBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3CA892A58AB7100246713 /* InCallBottomBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		F3A37BFF2A4F63A400165B85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3A37C062A4F663A00165B85 /* InCallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InCallViewController.swift; sourceTree = "<group>"; };
 		F3A37C082A4F665700165B85 /* CallEndedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallEndedViewController.swift; sourceTree = "<group>"; };
-		F3E3CA892A58AB7100246713 /* InCallUserNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InCallUserNavigationViewController.swift; sourceTree = "<group>"; };
+		F3E3CA892A58AB7100246713 /* InCallBottomBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InCallBottomBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +102,7 @@
 			children = (
 				F3A37BF52A4F639D00165B85 /* StartViewController.swift */,
 				F3A37C062A4F663A00165B85 /* InCallViewController.swift */,
-				F3E3CA892A58AB7100246713 /* InCallUserNavigationViewController.swift */,
+				F3E3CA892A58AB7100246713 /* InCallBottomBarViewController.swift */,
 				F3A37C082A4F665700165B85 /* CallEndedViewController.swift */,
 			);
 			path = viewControllers;
@@ -228,7 +228,7 @@
 				F3A37C092A4F665700165B85 /* CallEndedViewController.swift in Sources */,
 				F3A37BF22A4F639D00165B85 /* AppDelegate.swift in Sources */,
 				F3A37BF42A4F639D00165B85 /* SceneDelegate.swift in Sources */,
-				F3E3CA8A2A58AB7100246713 /* InCallUserNavigationViewController.swift in Sources */,
+				F3E3CA8A2A58AB7100246713 /* InCallBottomBarViewController.swift in Sources */,
 				F3A37C072A4F663A00165B85 /* InCallViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -85,9 +85,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TcK-qJ-GHJ">
-                                <rect key="frame" x="20" y="468" width="280" height="93"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TcK-qJ-GHJ">
+                                <rect key="frame" x="0.0" y="498" width="320" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="gbE-Lw-DYG"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="K9m-in-bKC" kind="embed" id="C7t-WK-5bx"/>
                                 </connections>
@@ -95,6 +97,11 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tg4-Pn-Cyj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tg4-Pn-Cyj" firstAttribute="trailing" secondItem="TcK-qJ-GHJ" secondAttribute="trailing" id="1nb-Ef-W5Y"/>
+                            <constraint firstItem="tg4-Pn-Cyj" firstAttribute="bottom" secondItem="TcK-qJ-GHJ" secondAttribute="bottom" id="JPB-6A-w7r"/>
+                            <constraint firstItem="TcK-qJ-GHJ" firstAttribute="leading" secondItem="tg4-Pn-Cyj" secondAttribute="leading" id="bdM-Ri-o8o"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dEM-qJ-998"/>
                 </viewController>
@@ -154,23 +161,80 @@
             </objects>
             <point key="canvasLocation" x="139.69465648854961" y="-2.1126760563380285"/>
         </scene>
-        <!--In Call User Navigation View Controller-->
+        <!--In Call Bottom Bar View Controller-->
         <scene sceneID="Sf0-p0-CaF">
             <objects>
-                <viewController id="K9m-in-bKC" customClass="InCallUserNavigationViewController" customModule="ConnectDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="K9m-in-bKC" customClass="InCallBottomBarViewController" customModule="ConnectDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wIV-gS-Kfe">
-                        <rect key="frame" x="0.0" y="0.0" width="280" height="93"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yos-xk-OcD">
+                                <rect key="frame" x="5" y="34" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="" cornerStyle="capsule" buttonSize="small">
+                                    <backgroundConfiguration key="background" image="phone-fill-red" imageContentMode="scaleAspectFit">
+                                        <color key="backgroundColor" white="0.0" alpha="0.26557185374149661" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="endCallBtnPressed:" destination="K9m-in-bKC" eventType="touchUpInside" id="kLB-9g-HjI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeH-dz-yFY">
+                                <rect key="frame" x="71" y="34" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background" image="camera-switch-fill" imageContentMode="scaleAspectFit"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="flipCameraBtnPressed:" destination="K9m-in-bKC" eventType="touchUpInside" id="JfQ-tG-6x3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cw7-nh-iAL">
+                                <rect key="frame" x="201" y="35" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background" image="lightbulb-line" imageContentMode="scaleAspectFit"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="flashlightBtnPressed:" destination="K9m-in-bKC" eventType="touchUpInside" id="3iJ-xQ-bk6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYe-XI-EWV">
+                                <rect key="frame" x="130" y="34" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background" image="mic-fill" imageContentMode="scaleAspectFit"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="muteBtnPressed:" destination="K9m-in-bKC" eventType="touchUpInside" id="e4J-Ae-JDW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fKU-VB-lCb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="flashlightBtn" destination="cw7-nh-iAL" id="WT6-ja-IhJ"/>
+                        <outlet property="muteBtn" destination="NYe-XI-EWV" id="dfG-gZ-qNr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQz-WE-Kga" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2001" y="512"/>
+            <point key="canvasLocation" x="2000.625" y="511.79577464788736"/>
         </scene>
     </scenes>
     <resources>
         <image name="Logo" width="83.5" height="82.5"/>
+        <image name="camera-switch-fill" width="240" height="240"/>
+        <image name="lightbulb-line" width="240" height="240"/>
+        <image name="mic-fill" width="240" height="240"/>
+        <image name="phone-fill-red" width="240" height="240"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

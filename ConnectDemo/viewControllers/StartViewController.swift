@@ -14,7 +14,7 @@ class StartViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         navigationController?.setNavigationBarHidden(false, animated: false)
-        
+        launchCallBtn.isEnabled = false
         connectionCodeTxtFld.delegate = self
     }
 

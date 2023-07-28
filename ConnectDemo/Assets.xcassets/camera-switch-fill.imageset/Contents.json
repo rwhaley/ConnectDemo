@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "camera-switch-fill.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

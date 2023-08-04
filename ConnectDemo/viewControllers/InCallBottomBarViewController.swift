@@ -6,12 +6,11 @@
 //
 
 import UIKit
+import OpenTok
 import os
 
 class InCallBottomBarViewController: UIViewController {
     var inCallViewCtrl: InCallViewController?
-    @IBOutlet var muteBtn: UIButton!
-    @IBOutlet var flashlightBtn: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +24,8 @@ class InCallBottomBarViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    // MARK: - Actions
+    
     @IBAction func endCallBtnPressed(_ sender: Any) {
         os_log("end call button presssed", log: .default, type: .debug)
     }
@@ -33,12 +34,13 @@ class InCallBottomBarViewController: UIViewController {
         os_log("flip camera button presssed", log: .default, type: .debug)
     }
 
-    @IBAction func muteBtnPressed(_ sender: Any) {
+    @IBAction func muteBtnPressed(btn: UIButton) {
         os_log("mute button presssed", log: .default, type: .debug)
     }
 
-    @IBAction func flashlightBtnPressed(_ sender: Any) {
+    @IBAction func flashlightBtnPressed(_ sender: UIButton) {
         os_log("flashlight button presssed", log: .default, type: .debug)
+        toggleFlash(btn: sender)
     }
 
     /*
@@ -50,5 +52,38 @@ class InCallBottomBarViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+    // MARK: - helpers
+
+    private func hasFlashlight() -> Bool {
+        guard let device = AVCaptureDevice.default(for: AVMediaType.video) else { return false }
+        guard device.hasTorch else { return false }
+        return true
+    }
+
+    private func toggleFlash(btn: UIButton) {
+        guard let device = AVCaptureDevice.default(for: AVMediaType.video) else { return }
+        guard device.hasTorch else { return }
+
+        do {
+            try device.lockForConfiguration()
+
+            if device.torchMode == AVCaptureDevice.TorchMode.on {
+                btn.setImage(UIImage(named: "light-off"), for: .normal)
+                device.torchMode = AVCaptureDevice.TorchMode.off
+            } else {
+                btn.setImage(UIImage(named: "light-on"), for: .normal)
+                do {
+                    try device.setTorchModeOn(level: 1.0)
+                } catch {
+                    os_log("Error: %@", log: .default, type: .error, String(describing: error))
+                }
+            }
+
+            device.unlockForConfiguration()
+        } catch {
+            os_log("Error: %@", log: .default, type: .error, String(describing: error))
+        }
+    }
 
 }

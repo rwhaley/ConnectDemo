@@ -25,7 +25,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XUk-E0-P4Z">
-                                <rect key="frame" x="69" y="342" width="158" height="34"/>
+                                <rect key="frame" x="69" y="320" width="158" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -38,7 +38,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slO-UB-poA">
-                                <rect key="frame" x="89" y="409" width="62" height="35"/>
+                                <rect key="frame" x="80" y="369" width="62" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Start"/>
@@ -169,60 +169,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yos-xk-OcD">
-                                <rect key="frame" x="5" y="34" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="" cornerStyle="capsule" buttonSize="small">
-                                    <backgroundConfiguration key="background" image="phone-fill-red" imageContentMode="scaleAspectFit">
-                                        <color key="backgroundColor" white="0.0" alpha="0.26557185374149661" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </backgroundConfiguration>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="endCallBtnPressed:" destination="K9m-in-bKC" eventType="touchUpInside" id="kLB-9g-HjI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeH-dz-yFY">
-                                <rect key="frame" x="71" y="34" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="" cornerStyle="capsule">
-                                    <backgroundConfiguration key="background" image="camera-switch-fill" imageContentMode="scaleAspectFit"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="flipCameraBtnPressed:" destination="K9m-in-bKC" eventType="touchUpInside" id="JfQ-tG-6x3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cw7-nh-iAL">
-                                <rect key="frame" x="201" y="35" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="" cornerStyle="capsule">
-                                    <backgroundConfiguration key="background" image="lightbulb-line" imageContentMode="scaleAspectFit"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="flashlightBtnPressed:" destination="K9m-in-bKC" eventType="touchUpInside" id="3iJ-xQ-bk6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYe-XI-EWV">
-                                <rect key="frame" x="130" y="34" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="" cornerStyle="capsule">
-                                    <backgroundConfiguration key="background" image="mic-fill" imageContentMode="scaleAspectFit"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="muteBtnPressed:" destination="K9m-in-bKC" eventType="touchUpInside" id="e4J-Ae-JDW"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="center" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7We-me-Tv9">
+                                <rect key="frame" x="20" y="10" width="280" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yos-xk-OcD">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="0mv-Aa-nPn"/>
+                                            <constraint firstAttribute="height" constant="50" id="W64-sK-kVq"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="" image="disconnect">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="endCallBtnPressed:" destination="K9m-in-bKC" eventType="touchUpInside" id="kLB-9g-HjI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeH-dz-yFY">
+                                        <rect key="frame" x="76.5" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Bln-4A-9FP"/>
+                                            <constraint firstAttribute="width" constant="50" id="kP3-uv-dWl"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="" image="rotate"/>
+                                        <connections>
+                                            <action selector="flipCameraBtnPressed:" destination="K9m-in-bKC" eventType="touchUpInside" id="JfQ-tG-6x3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cw7-nh-iAL">
+                                        <rect key="frame" x="153.5" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="Dg8-iA-xdu"/>
+                                            <constraint firstAttribute="height" constant="50" id="xRX-cK-9kN"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="" image="light-off"/>
+                                        <connections>
+                                            <action selector="flashlightBtnPressed:" destination="K9m-in-bKC" eventType="touchUpInside" id="3iJ-xQ-bk6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYe-XI-EWV">
+                                        <rect key="frame" x="230" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="CFV-ed-1kR"/>
+                                            <constraint firstAttribute="width" constant="50" id="eNk-W6-jrZ"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="" image="mic-on"/>
+                                        <connections>
+                                            <action selector="muteBtnPressed:" destination="K9m-in-bKC" eventType="touchUpInside" id="e4J-Ae-JDW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fKU-VB-lCb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="7We-me-Tv9" secondAttribute="trailing" constant="20" id="7pY-GT-gne"/>
+                            <constraint firstItem="fKU-VB-lCb" firstAttribute="bottom" secondItem="7We-me-Tv9" secondAttribute="bottom" constant="10" id="SWx-pt-WiR"/>
+                            <constraint firstItem="7We-me-Tv9" firstAttribute="leading" secondItem="wIV-gS-Kfe" secondAttribute="leading" constant="20" id="zFO-oA-fF6"/>
+                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="flashlightBtn" destination="cw7-nh-iAL" id="WT6-ja-IhJ"/>
-                        <outlet property="muteBtn" destination="NYe-XI-EWV" id="dfG-gZ-qNr"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQz-WE-Kga" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -231,10 +241,10 @@
     </scenes>
     <resources>
         <image name="Logo" width="83.5" height="82.5"/>
-        <image name="camera-switch-fill" width="240" height="240"/>
-        <image name="lightbulb-line" width="240" height="240"/>
-        <image name="mic-fill" width="240" height="240"/>
-        <image name="phone-fill-red" width="240" height="240"/>
+        <image name="disconnect" width="50" height="50"/>
+        <image name="light-off" width="50" height="50"/>
+        <image name="mic-on" width="50" height="50"/>
+        <image name="rotate" width="50" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

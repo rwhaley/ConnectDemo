@@ -25,18 +25,18 @@ class InCallViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        do {
-//            try AVAudioSession.sharedInstance().setPrefersNoInterruptionsFromSystemAlerts(true)
-//        } catch {
-//            os_log("Error: %@", log: .default, type: .error, String(describing: error))
-//        }
+        do {
+            try AVAudioSession.sharedInstance().setPrefersNoInterruptionsFromSystemAlerts(true)
+        } catch {
+            os_log("Error: %@", log: .default, type: .error, String(describing: error))
+        }
         
         navigationController?.setNavigationBarHidden(true, animated: false)
         
         // keep app from sleeping during survey
         UIApplication.shared.isIdleTimerDisabled = true
         
-//        doConnect()
+        doConnect()
     }
     
     /**
@@ -50,6 +50,15 @@ class InCallViewController: UIViewController {
         }
         
         session.connect(withToken: token, error: &error)
+    }
+
+    func doDisconnect() {
+        var error: OTError?
+        session.disconnect(&error)
+        if error != nil {
+            os_log("Error: %@", log: .default, type: .error, String(describing: error))
+        }
+        performSegue(withIdentifier: "showCallEnded", sender: self)
     }
     
     /**
@@ -132,6 +141,7 @@ extension InCallViewController: OTSessionDelegate {
             os_log("subscriber left session", log: .default, type: .debug)
             cleanupSubscriber()
         }
+        doDisconnect()
     }
     
     func session(_ session: OTSession, didFailWithError error: OTError) {

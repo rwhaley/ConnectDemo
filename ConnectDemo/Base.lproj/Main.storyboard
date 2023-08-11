@@ -75,7 +75,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="next"/>
                                 <connections>
-                                    <segue destination="Mvw-HK-qeb" kind="show" id="8Ri-PB-T7D"/>
+                                    <segue destination="Mvw-HK-qeb" kind="show" identifier="showCallEnded" id="8Ri-PB-T7D"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="in call" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEX-Cx-Bw9">
@@ -219,7 +219,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="" image="mic-on"/>
                                         <connections>
-                                            <action selector="muteBtnPressed:" destination="K9m-in-bKC" eventType="touchUpInside" id="e4J-Ae-JDW"/>
+                                            <action selector="micBtnPressed:" destination="K9m-in-bKC" eventType="touchUpInside" id="qi5-je-P6v"/>
                                         </connections>
                                     </button>
                                 </subviews>

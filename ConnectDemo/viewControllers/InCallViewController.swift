@@ -2,14 +2,13 @@ import UIKit
 import OpenTok
 import os
 
-let kWidgetHeight = 240
-let kWidgetWidth = 320
-
 class InCallViewController: UIViewController {
     var apiKey: String!
     var sessionId: String!
     var token: String!
-    
+    @IBOutlet var fullView: UIView!
+    @IBOutlet var pipView: UIView!
+
     lazy var session: OTSession = {
         return OTSession(apiKey: apiKey, sessionId: sessionId, delegate: self)!
     }()
@@ -73,11 +72,24 @@ class InCallViewController: UIViewController {
         }
         
         session.publish(publisher, error: &error)
-        
+
         if let pubView = publisher.view {
-            pubView.frame = CGRect(x: 0, y: 0, width: kWidgetWidth, height: kWidgetHeight)
-            view.addSubview(pubView)
+            addTokBoxViewToView(pubView, pipView)
         }
+    }
+
+    func addTokBoxViewToView(_ tokBoxView: UIView, _ parentView: UIView) {
+        // make sure it's not attached to another view
+        tokBoxView.removeFromSuperview()
+
+        parentView.addSubview(tokBoxView)
+
+        // set constraint to match parentView's storyboard constraint
+        tokBoxView.translatesAutoresizingMaskIntoConstraints = false
+        tokBoxView.leadingAnchor.constraint(equalTo: parentView.leadingAnchor).isActive = true
+        tokBoxView.trailingAnchor.constraint(equalTo: parentView.trailingAnchor).isActive = true
+        tokBoxView.topAnchor.constraint(equalTo: parentView.topAnchor).isActive = true
+        tokBoxView.bottomAnchor.constraint(equalTo: parentView.bottomAnchor).isActive = true
     }
     
     /**
@@ -174,8 +186,7 @@ extension InCallViewController: OTPublisherDelegate {
 extension InCallViewController: OTSubscriberDelegate {
     func subscriberDidConnect(toStream subscriberKit: OTSubscriberKit) {
         if let subsView = subscriber?.view {
-            subsView.frame = CGRect(x: 0, y: kWidgetHeight, width: kWidgetWidth, height: kWidgetHeight)
-            view.addSubview(subsView)
+            self.addTokBoxViewToView(subsView, self.fullView)
         }
     }
     

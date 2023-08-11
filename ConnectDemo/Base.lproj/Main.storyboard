@@ -69,13 +69,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="in call" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEX-Cx-Bw9">
-                                <rect key="frame" x="93" y="150" width="44" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uFa-pQ-AFV" userLabel="fullView">
+                                <rect key="frame" x="16" y="64" width="288" height="504"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rch-uZ-LJc" userLabel="pipView">
+                                <rect key="frame" x="158" y="343" width="122" height="150"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="122" id="DtX-si-3ph"/>
+                                    <constraint firstAttribute="height" constant="150" id="a1z-gY-1NP"/>
+                                </constraints>
+                            </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TcK-qJ-GHJ">
                                 <rect key="frame" x="0.0" y="498" width="320" height="70"/>
                                 <constraints>
@@ -90,12 +95,20 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="tg4-Pn-Cyj" firstAttribute="trailing" secondItem="TcK-qJ-GHJ" secondAttribute="trailing" id="1nb-Ef-W5Y"/>
+                            <constraint firstItem="uFa-pQ-AFV" firstAttribute="top" secondItem="imC-26-mmJ" secondAttribute="topMargin" id="GKT-Ku-2Ms"/>
                             <constraint firstItem="tg4-Pn-Cyj" firstAttribute="bottom" secondItem="TcK-qJ-GHJ" secondAttribute="bottom" id="JPB-6A-w7r"/>
+                            <constraint firstItem="uFa-pQ-AFV" firstAttribute="leading" secondItem="imC-26-mmJ" secondAttribute="leadingMargin" id="QRD-9i-lXq"/>
                             <constraint firstItem="TcK-qJ-GHJ" firstAttribute="leading" secondItem="tg4-Pn-Cyj" secondAttribute="leading" id="bdM-Ri-o8o"/>
+                            <constraint firstItem="TcK-qJ-GHJ" firstAttribute="top" secondItem="rch-uZ-LJc" secondAttribute="bottom" constant="5" id="scE-Kw-R7q"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="uFa-pQ-AFV" secondAttribute="bottom" id="upD-UN-oXE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uFa-pQ-AFV" secondAttribute="trailing" id="yIK-yD-k0V"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rch-uZ-LJc" secondAttribute="trailing" constant="24" id="zSi-fM-Y7E"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dEM-qJ-998"/>
                     <connections>
+                        <outlet property="fullView" destination="uFa-pQ-AFV" id="G4A-2c-DIa"/>
+                        <outlet property="pipView" destination="rch-uZ-LJc" id="Mtw-mh-y7Y"/>
                         <segue destination="Mvw-HK-qeb" kind="show" identifier="showCallEnded" id="IVN-LS-ftA"/>
                     </connections>
                 </viewController>
@@ -220,7 +233,6 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fKU-VB-lCb"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="7We-me-Tv9" secondAttribute="trailing" constant="20" id="7pY-GT-gne"/>
                             <constraint firstItem="fKU-VB-lCb" firstAttribute="bottom" secondItem="7We-me-Tv9" secondAttribute="bottom" constant="10" id="SWx-pt-WiR"/>

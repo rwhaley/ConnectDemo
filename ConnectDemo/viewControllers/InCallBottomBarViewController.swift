@@ -10,14 +10,12 @@ import OpenTok
 import os
 
 class InCallBottomBarViewController: UIViewController {
-    var inCallViewCtrl: InCallViewController!
+    var parentCtrl: InCallViewController!
     @IBOutlet var flashlightBtn: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         flashlightBtn.isHidden = true
-
-        // Do any additional setup after loading the view.
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -26,7 +24,7 @@ class InCallBottomBarViewController: UIViewController {
         guard let parent = self.parent as? InCallViewController else {
             return
         }
-        inCallViewCtrl = parent
+        parentCtrl = parent
     }
 
     // MARK: - Actions
@@ -46,49 +44,48 @@ class InCallBottomBarViewController: UIViewController {
                                       style: UIAlertAction.Style.destructive,
                                       handler: {(_: UIAlertAction!) in
                                             // disconnect is called immediately when we are not archving
-                                            self.inCallViewCtrl.doDisconnect()
+                                            self.parentCtrl.doDisconnect()
                                       }))
-        inCallViewCtrl.present(alert, animated: true, completion: nil)
+        parentCtrl.present(alert, animated: true, completion: nil)
 
     }
 
     @IBAction func flipCameraBtnPressed(_ sender: UIButton) {
         os_log("flip camera button presssed", log: .default, type: .debug)
-        guard let subscriberView = inCallViewCtrl.subscriber?.view,
-              let publisherView = inCallViewCtrl.publisher.view else {
+        guard let subscriberView = parentCtrl.subscriber?.view,
+              let publisherView = parentCtrl.publisher.view else {
             return
         }
 
-        if inCallViewCtrl.publisher.cameraPosition == .front {
-            inCallViewCtrl.publisher.cameraPosition = AVCaptureDevice.Position.back
+        if parentCtrl.publisher.cameraPosition == .front {
+            parentCtrl.publisher.cameraPosition = AVCaptureDevice.Position.back
             if hasFlashlight() {
                 flashlightBtn.isHidden = false
             }
-//            inCallViewCtrl.addTokBoxViewToView(subscriberView, parentViewController.pipView!)
-//            inCallViewCtrl.addTokBoxViewToView(publisherView, parentViewController.fullView!)
+            parentCtrl.addTokBoxViewToView(subscriberView, parentCtrl.pipView!)
+            parentCtrl.addTokBoxViewToView(publisherView, parentCtrl.fullView!)
             rotateScreenTo(orientation: UIInterfaceOrientationMask.landscape)
         } else {
-            inCallViewCtrl.publisher.cameraPosition = AVCaptureDevice.Position.front
+            parentCtrl.publisher.cameraPosition = AVCaptureDevice.Position.front
             if hasFlashlight() {
                 flashlightBtn.isHidden = true
                 toggleFlash(forceOff: true)
             }
-//            inCallViewCtrl.addTokBoxViewToView(subscriberView, parentViewController.fullView!)
-//            inCallViewCtrl.addTokBoxViewToView(publisherView, parentViewController.pipView!)
+            parentCtrl.addTokBoxViewToView(subscriberView, parentCtrl.fullView!)
+            parentCtrl.addTokBoxViewToView(publisherView, parentCtrl.pipView!)
             rotateScreenTo(orientation: UIInterfaceOrientationMask.portrait)
         }
     }
 
     @IBAction func micBtnPressed(_ sender: UIButton) {
         os_log("mute button presssed", log: .default, type: .debug)
-        if inCallViewCtrl.publisher.publishAudio == false {
+        if parentCtrl.publisher.publishAudio == false {
             sender.setImage(UIImage(named: "mic-on"), for: .normal)
-            inCallViewCtrl.publisher.publishAudio = true
+            parentCtrl.publisher.publishAudio = true
         } else {
             sender.setImage(UIImage(named: "mic-off"), for: .normal)
-            inCallViewCtrl.publisher.publishAudio = false
+            parentCtrl.publisher.publishAudio = false
         }
-
     }
 
     @IBAction func flashlightBtnPressed(_ sender: UIButton) {

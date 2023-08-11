@@ -69,15 +69,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g26-4J-TOP">
-                                <rect key="frame" x="93" y="311" width="57" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="next"/>
-                                <connections>
-                                    <segue destination="Mvw-HK-qeb" kind="show" identifier="showCallEnded" id="8Ri-PB-T7D"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="in call" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEX-Cx-Bw9">
                                 <rect key="frame" x="93" y="150" width="44" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -104,6 +95,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dEM-qJ-998"/>
+                    <connections>
+                        <segue destination="Mvw-HK-qeb" kind="show" identifier="showCallEnded" id="IVN-LS-ftA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ra-Mu-0ks" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -172,7 +166,7 @@
                             <stackView opaque="NO" contentMode="center" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7We-me-Tv9">
                                 <rect key="frame" x="20" y="10" width="280" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yos-xk-OcD">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yos-xk-OcD" userLabel="End Button">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="0mv-Aa-nPn"/>
@@ -186,7 +180,7 @@
                                             <action selector="endCallBtnPressed:" destination="K9m-in-bKC" eventType="touchUpInside" id="kLB-9g-HjI"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeH-dz-yFY">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeH-dz-yFY" userLabel="Flip Camera Button">
                                         <rect key="frame" x="76.5" y="0.0" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Bln-4A-9FP"/>
@@ -198,7 +192,7 @@
                                             <action selector="flipCameraBtnPressed:" destination="K9m-in-bKC" eventType="touchUpInside" id="JfQ-tG-6x3"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cw7-nh-iAL">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cw7-nh-iAL" userLabel="Flashlight Button">
                                         <rect key="frame" x="153.5" y="0.0" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="Dg8-iA-xdu"/>
@@ -210,7 +204,7 @@
                                             <action selector="flashlightBtnPressed:" destination="K9m-in-bKC" eventType="touchUpInside" id="3iJ-xQ-bk6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYe-XI-EWV">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYe-XI-EWV" userLabel="Mute Button">
                                         <rect key="frame" x="230" y="0.0" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="CFV-ed-1kR"/>
@@ -233,6 +227,9 @@
                             <constraint firstItem="7We-me-Tv9" firstAttribute="leading" secondItem="wIV-gS-Kfe" secondAttribute="leading" constant="20" id="zFO-oA-fF6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="flashlightBtn" destination="cw7-nh-iAL" id="BDi-6H-LOU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQz-WE-Kga" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

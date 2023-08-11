@@ -11,9 +11,11 @@ import os
 
 class InCallBottomBarViewController: UIViewController {
     var inCallViewCtrl: InCallViewController!
+    @IBOutlet var flashlightBtn: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        flashlightBtn.isHidden = true
 
         // Do any additional setup after loading the view.
     }
@@ -59,17 +61,18 @@ class InCallBottomBarViewController: UIViewController {
 
         if inCallViewCtrl.publisher.cameraPosition == .front {
             inCallViewCtrl.publisher.cameraPosition = AVCaptureDevice.Position.back
-//            if hasFlashlight() {
-//                tabBar.items!.append(flashlightBarButtonItem)
-//            }
+            if hasFlashlight() {
+                flashlightBtn.isHidden = false
+            }
 //            inCallViewCtrl.addTokBoxViewToView(subscriberView, parentViewController.pipView!)
 //            inCallViewCtrl.addTokBoxViewToView(publisherView, parentViewController.fullView!)
             rotateScreenTo(orientation: UIInterfaceOrientationMask.landscape)
         } else {
             inCallViewCtrl.publisher.cameraPosition = AVCaptureDevice.Position.front
-//            if hasFlashlight() {
-//                tabBar.items!.remove(at: 3)
-//            }
+            if hasFlashlight() {
+                flashlightBtn.isHidden = true
+                toggleFlash(forceOff: true)
+            }
 //            inCallViewCtrl.addTokBoxViewToView(subscriberView, parentViewController.fullView!)
 //            inCallViewCtrl.addTokBoxViewToView(publisherView, parentViewController.pipView!)
             rotateScreenTo(orientation: UIInterfaceOrientationMask.portrait)
@@ -90,7 +93,7 @@ class InCallBottomBarViewController: UIViewController {
 
     @IBAction func flashlightBtnPressed(_ sender: UIButton) {
         os_log("flashlight button presssed", log: .default, type: .debug)
-        toggleFlash(btn: sender)
+        toggleFlash(forceOff: false)
     }
 
     /*
@@ -111,18 +114,18 @@ class InCallBottomBarViewController: UIViewController {
         return true
     }
 
-    private func toggleFlash(btn: UIButton) {
+    private func toggleFlash(forceOff: Bool) {
         guard let device = AVCaptureDevice.default(for: AVMediaType.video) else { return }
         guard device.hasTorch else { return }
 
         do {
             try device.lockForConfiguration()
 
-            if device.torchMode == AVCaptureDevice.TorchMode.on {
-                btn.setImage(UIImage(named: "light-off"), for: .normal)
+            if device.torchMode == AVCaptureDevice.TorchMode.on || forceOff {
+                flashlightBtn.setImage(UIImage(named: "light-off"), for: .normal)
                 device.torchMode = AVCaptureDevice.TorchMode.off
             } else {
-                btn.setImage(UIImage(named: "light-on"), for: .normal)
+                flashlightBtn.setImage(UIImage(named: "light-on"), for: .normal)
                 do {
                     try device.setTorchModeOn(level: 1.0)
                 } catch {

@@ -25,5 +25,11 @@
 			</array>
 		</dict>
 	</dict>
+	<key>DEMO_TOKBOX_API_KEY</key>
+	<string>$(TOKBOX_API_KEY)</string>
+	<key>DEMO_TOKBOX_SESSIONID</key>
+	<string>$(TOKBOX_SESSIONID)</string>
+	<key>DEMO_TOKBOX_TOKEN</key>
+	<string>$(TOKBOX_TOKEN)</string>
 </dict>
 </plist>

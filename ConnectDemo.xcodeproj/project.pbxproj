@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		002C5775EF9DA6EC7853BE15 /* Pods_ConnectDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46711F3890CD86A24BF153E7 /* Pods_ConnectDemo.framework */; };
+		716D179E2A8A66A000D426DC /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716D179D2A8A66A000D426DC /* AppUtility.swift */; };
 		F3A37BF22A4F639D00165B85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A37BF12A4F639D00165B85 /* AppDelegate.swift */; };
 		F3A37BF42A4F639D00165B85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A37BF32A4F639D00165B85 /* SceneDelegate.swift */; };
 		F3A37BF62A4F639D00165B85 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A37BF52A4F639D00165B85 /* StartViewController.swift */; };
@@ -21,7 +22,10 @@
 
 /* Begin PBXFileReference section */
 		46711F3890CD86A24BF153E7 /* Pods_ConnectDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConnectDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		710DB86A2A86C8C700A79DB5 /* Local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Local.xcconfig; sourceTree = "<group>"; };
+		716D179D2A8A66A000D426DC /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
 		CBB0CF48B9320AC141A766A6 /* Pods-ConnectDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectDemo.debug.xcconfig"; path = "Target Support Files/Pods-ConnectDemo/Pods-ConnectDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		D028EAB00789060FE079C0FF /* Pods-ConnectDemo.local.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectDemo.local.xcconfig"; path = "Target Support Files/Pods-ConnectDemo/Pods-ConnectDemo.local.xcconfig"; sourceTree = "<group>"; };
 		D2DCCF0E36105BAA3F4EA156 /* Pods-ConnectDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectDemo.release.xcconfig"; path = "Target Support Files/Pods-ConnectDemo/Pods-ConnectDemo.release.xcconfig"; sourceTree = "<group>"; };
 		F3A37BEE2A4F639D00165B85 /* ConnectDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnectDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A37BF12A4F639D00165B85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +65,7 @@
 			children = (
 				CBB0CF48B9320AC141A766A6 /* Pods-ConnectDemo.debug.xcconfig */,
 				D2DCCF0E36105BAA3F4EA156 /* Pods-ConnectDemo.release.xcconfig */,
+				D028EAB00789060FE079C0FF /* Pods-ConnectDemo.local.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -86,13 +91,15 @@
 		F3A37BF02A4F639D00165B85 /* ConnectDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F3A37C052A4F65DF00165B85 /* viewControllers */,
 				F3A37BF12A4F639D00165B85 /* AppDelegate.swift */,
 				F3A37BF32A4F639D00165B85 /* SceneDelegate.swift */,
-				F3A37C052A4F65DF00165B85 /* viewControllers */,
+				716D179D2A8A66A000D426DC /* AppUtility.swift */,
 				F3A37BF72A4F639D00165B85 /* Main.storyboard */,
 				F3A37BFA2A4F63A400165B85 /* Assets.xcassets */,
 				F3A37BFC2A4F63A400165B85 /* LaunchScreen.storyboard */,
 				F3A37BFF2A4F63A400165B85 /* Info.plist */,
+				710DB86A2A86C8C700A79DB5 /* Local.xcconfig */,
 			);
 			path = ConnectDemo;
 			sourceTree = "<group>";
@@ -224,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				716D179E2A8A66A000D426DC /* AppUtility.swift in Sources */,
 				F3A37BF62A4F639D00165B85 /* StartViewController.swift in Sources */,
 				F3A37C092A4F665700165B85 /* CallEndedViewController.swift in Sources */,
 				F3A37BF22A4F639D00165B85 /* AppDelegate.swift in Sources */,
@@ -255,6 +263,97 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		710DB86B2A86CFC000A79DB5 /* Local */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 710DB86A2A86C8C700A79DB5 /* Local.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Local;
+		};
+		710DB86C2A86CFC000A79DB5 /* Local */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D028EAB00789060FE079C0FF /* Pods-ConnectDemo.local.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WTW5HD6TBQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ConnectDemo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.raywhaley.ConnectDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Local;
+		};
 		F3A37C002A4F63A400165B85 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -436,6 +535,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F3A37C002A4F63A400165B85 /* Debug */,
+				710DB86B2A86CFC000A79DB5 /* Local */,
 				F3A37C012A4F63A400165B85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -445,6 +545,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F3A37C032A4F63A400165B85 /* Debug */,
+				710DB86C2A86CFC000A79DB5 /* Local */,
 				F3A37C042A4F63A400165B85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

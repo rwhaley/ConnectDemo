@@ -26,11 +26,27 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func fetchStartCallDataAndLaunch(withConnectionCode connectionCode: String) {
+        if isInDemoMode() {
+            return
+        }
+
         // add api call here
-        self.apiKey = ""
-        self.sessionId = ""
-        // swiftlint:disable:next line_length
-        self.token = ""
+    }
+
+    private func isInDemoMode() -> Bool {
+        guard let apiKey = AppUtility.getConfigValue(forKey: "DEMO_TOKBOX_API_KEY"),
+              let sessionId = AppUtility.getConfigValue(forKey: "DEMO_TOKBOX_SESSIONID"),
+              let token = AppUtility.getConfigValue(forKey: "DEMO_TOKBOX_TOKEN") else {
+                  return false
+              }
+        if apiKey.isEmpty || sessionId.isEmpty || token.isEmpty {
+            return false
+        }
+        self.apiKey = apiKey
+        self.sessionId = sessionId
+        self.token = token
+
+        return true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

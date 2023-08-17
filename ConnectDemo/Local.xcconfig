@@ -1,0 +1,14 @@
+//
+//  Local.xcconfig
+//  ConnectDemo
+//
+//  Created by Ray Whaley on 8/11/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// demo mode to bypass api call that get tokbox connection data
+TOKBOX_API_KEY =
+TOKBOX_SESSIONID =
+TOKBOX_TOKEN =

@@ -9,13 +9,24 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var connectionCodeTxtFld: UITextField!
     @IBOutlet weak var launchCallBtn: UIButton!
-    
+    @IBOutlet var containerStackView: UIStackView!
+    @IBOutlet var logoImgView: UIImageView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController?.setNavigationBarHidden(false, animated: false)
         launchCallBtn.isEnabled = false
         connectionCodeTxtFld.delegate = self
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handleKeyboardNotification),
+                                               name: UIApplication.keyboardWillShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handleKeyboardNotification),
+                                               name: UIApplication.keyboardWillHideNotification,
+                                               object: nil)
     }
 
     @IBAction func launchCallBtnPressed(_ sender: Any) {
@@ -47,6 +58,30 @@ class StartViewController: UIViewController, UITextFieldDelegate {
         self.token = token
 
         return true
+    }
+
+    @objc private func handleKeyboardNotification(notification: NSNotification) {
+        guard let keyboardFrame = (notification.userInfo?[UIApplication.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+
+        let isKeyboardShowing = notification.name == UIApplication.keyboardWillShowNotification
+        let keyboardHeight = (isKeyboardShowing ? keyboardFrame.height : 0)
+        let containerStackViewBottom = containerStackView.frame.origin.y + containerStackView.frame.size.height
+        let availableHeight = view.frame.height - containerStackViewBottom
+
+        if availableHeight < keyboardHeight {
+            let constraintPadding = keyboardHeight - availableHeight
+            // keyboard is overlapping containerStackView, adjust it's constraint
+            let constraint = AppUtility.constraintWithIdentifier(identifier: "containerStackViewConstraint", view: view)
+            constraint?.constant = -constraintPadding
+
+            // adjust with animate so we don't see a jump adjust
+            UIView.animate(withDuration: 0, animations: {
+                self.logoImgView.alpha = 0.1
+                self.view.layoutIfNeeded()
+            })
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -22,4 +22,9 @@ struct AppUtility {
         }
         return rootURLstring
     }
+
+    // get a constraint using the constraint's identifier
+    static func constraintWithIdentifier( identifier: String, view: UIView) -> NSLayoutConstraint? {
+        return view.constraints.first { $0.identifier == identifier }
+    }
 }

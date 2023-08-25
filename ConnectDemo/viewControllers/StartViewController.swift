@@ -68,7 +68,8 @@ class StartViewController: UIViewController, UITextFieldDelegate {
         let isKeyboardShowing = notification.name == UIApplication.keyboardWillShowNotification
         let keyboardHeight = (isKeyboardShowing ? keyboardFrame.height : 0)
         let containerStackViewBottom = containerStackView.frame.origin.y + containerStackView.frame.size.height
-        let availableHeight = view.frame.height - containerStackViewBottom
+        let additionalBottomPadding = 5.0
+        let availableHeight = view.frame.height - containerStackViewBottom - additionalBottomPadding
 
         if availableHeight < keyboardHeight {
             let constraintPadding = keyboardHeight - availableHeight

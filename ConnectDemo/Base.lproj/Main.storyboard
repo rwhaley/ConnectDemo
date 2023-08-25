@@ -50,6 +50,7 @@
                                             <backgroundConfiguration key="background">
                                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                             </backgroundConfiguration>
+                                            <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -91,11 +92,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uFa-pQ-AFV" userLabel="fullView">
-                                <rect key="frame" x="16" y="103" width="361" height="715"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rch-uZ-LJc" userLabel="pipView">
-                                <rect key="frame" x="231" y="593" width="122" height="150"/>
+                                <rect key="frame" x="256" y="598" width="122" height="150"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="122" id="DtX-si-3ph"/>
@@ -115,15 +116,15 @@
                         <viewLayoutGuide key="safeArea" id="tg4-Pn-Cyj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="tg4-Pn-Cyj" firstAttribute="trailing" secondItem="TcK-qJ-GHJ" secondAttribute="trailing" id="1nb-Ef-W5Y"/>
-                            <constraint firstItem="uFa-pQ-AFV" firstAttribute="top" secondItem="imC-26-mmJ" secondAttribute="topMargin" id="GKT-Ku-2Ms"/>
-                            <constraint firstItem="tg4-Pn-Cyj" firstAttribute="bottom" secondItem="TcK-qJ-GHJ" secondAttribute="bottom" id="JPB-6A-w7r"/>
-                            <constraint firstItem="uFa-pQ-AFV" firstAttribute="leading" secondItem="imC-26-mmJ" secondAttribute="leadingMargin" id="QRD-9i-lXq"/>
+                            <constraint firstItem="TcK-qJ-GHJ" firstAttribute="trailing" secondItem="tg4-Pn-Cyj" secondAttribute="trailing" id="1nb-Ef-W5Y"/>
+                            <constraint firstItem="uFa-pQ-AFV" firstAttribute="top" secondItem="imC-26-mmJ" secondAttribute="top" id="GKT-Ku-2Ms"/>
+                            <constraint firstItem="TcK-qJ-GHJ" firstAttribute="bottom" secondItem="tg4-Pn-Cyj" secondAttribute="bottom" id="JPB-6A-w7r"/>
+                            <constraint firstItem="uFa-pQ-AFV" firstAttribute="leading" secondItem="imC-26-mmJ" secondAttribute="leading" id="QRD-9i-lXq"/>
                             <constraint firstItem="TcK-qJ-GHJ" firstAttribute="leading" secondItem="tg4-Pn-Cyj" secondAttribute="leading" id="bdM-Ri-o8o"/>
-                            <constraint firstItem="TcK-qJ-GHJ" firstAttribute="top" secondItem="rch-uZ-LJc" secondAttribute="bottom" constant="5" id="scE-Kw-R7q"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="uFa-pQ-AFV" secondAttribute="bottom" id="upD-UN-oXE"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="uFa-pQ-AFV" secondAttribute="trailing" id="yIK-yD-k0V"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="rch-uZ-LJc" secondAttribute="trailing" constant="24" id="zSi-fM-Y7E"/>
+                            <constraint firstItem="rch-uZ-LJc" firstAttribute="bottom" secondItem="TcK-qJ-GHJ" secondAttribute="top" id="scE-Kw-R7q"/>
+                            <constraint firstItem="uFa-pQ-AFV" firstAttribute="bottom" secondItem="imC-26-mmJ" secondAttribute="bottom" id="upD-UN-oXE"/>
+                            <constraint firstItem="uFa-pQ-AFV" firstAttribute="trailing" secondItem="imC-26-mmJ" secondAttribute="trailing" id="yIK-yD-k0V"/>
+                            <constraint firstItem="rch-uZ-LJc" firstAttribute="trailing" secondItem="imC-26-mmJ" secondAttribute="trailing" constant="-15" id="zSi-fM-Y7E"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dEM-qJ-998"/>
@@ -198,7 +199,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="center" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7We-me-Tv9">
-                                <rect key="frame" x="20" y="-24" width="353" height="50"/>
+                                <rect key="frame" x="20" y="-4" width="353" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yos-xk-OcD" userLabel="End Button">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -255,8 +256,8 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fKU-VB-lCb"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="7We-me-Tv9" secondAttribute="trailing" constant="20" id="7pY-GT-gne"/>
-                            <constraint firstItem="fKU-VB-lCb" firstAttribute="bottom" secondItem="7We-me-Tv9" secondAttribute="bottom" constant="10" id="SWx-pt-WiR"/>
+                            <constraint firstItem="7We-me-Tv9" firstAttribute="trailing" secondItem="wIV-gS-Kfe" secondAttribute="trailing" constant="-20" id="7pY-GT-gne"/>
+                            <constraint firstItem="7We-me-Tv9" firstAttribute="bottom" secondItem="fKU-VB-lCb" secondAttribute="bottom" constant="10" id="SWx-pt-WiR"/>
                             <constraint firstItem="7We-me-Tv9" firstAttribute="leading" secondItem="wIV-gS-Kfe" secondAttribute="leading" constant="20" id="zFO-oA-fF6"/>
                         </constraints>
                     </view>

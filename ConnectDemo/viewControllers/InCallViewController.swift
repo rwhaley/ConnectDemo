@@ -34,6 +34,8 @@ class InCallViewController: UIViewController {
         
         // keep app from sleeping during survey
         UIApplication.shared.isIdleTimerDisabled = true
+
+        showSpinner(message: "Connecting...", timeout: 0)
         
         doConnect()
     }
@@ -167,6 +169,7 @@ extension InCallViewController: OTSessionDelegate {
 extension InCallViewController: OTPublisherDelegate {
     func publisher(_ publisher: OTPublisherKit, streamCreated stream: OTStream) {
         os_log("Publishing", log: .default, type: .debug)
+        updateSpinnerMessage(message: "Other party is connecting...")
     }
     
     func publisher(_ publisher: OTPublisherKit, streamDestroyed stream: OTStream) {
@@ -186,6 +189,7 @@ extension InCallViewController: OTPublisherDelegate {
 extension InCallViewController: OTSubscriberDelegate {
     func subscriberDidConnect(toStream subscriberKit: OTSubscriberKit) {
         if let subsView = subscriber?.view {
+            removeSpinner()
             self.addTokBoxViewToView(subsView, self.fullView)
         }
     }

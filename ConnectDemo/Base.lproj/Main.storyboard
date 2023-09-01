@@ -147,7 +147,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="callEnded" translatesAutoresizingMaskIntoConstraints="NO" id="hFC-4s-yaK" userLabel="callEnded Image View">
-                                <rect key="frame" x="129" y="92.999999999999986" width="172" height="205.66666666666663"/>
+                                <rect key="frame" x="129" y="102.99999999999999" width="172" height="205.66666666666663"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hFC-4s-yaK" secondAttribute="height" multiplier="128:153" id="Nng-IX-Qwf"/>
                                 </constraints>
@@ -167,7 +167,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call Ended" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSR-Pr-IHg">
-                                <rect key="frame" x="164" y="368.66666666666669" width="102" height="26.333333333333314"/>
+                                <rect key="frame" x="164" y="358.66666666666669" width="102" height="26.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -179,9 +179,9 @@
                             <constraint firstItem="sSz-sq-1b3" firstAttribute="centerX" secondItem="eGP-Vn-n9D" secondAttribute="centerX" id="4ip-yU-gD9"/>
                             <constraint firstItem="hFC-4s-yaK" firstAttribute="centerX" secondItem="eGP-Vn-n9D" secondAttribute="centerX" id="Dqm-Mi-Nbg"/>
                             <constraint firstItem="hFC-4s-yaK" firstAttribute="width" secondItem="eGP-Vn-n9D" secondAttribute="width" multiplier="0.4" id="Gia-Jn-QTK"/>
-                            <constraint firstItem="Dq3-Wy-Mgy" firstAttribute="bottom" secondItem="sSz-sq-1b3" secondAttribute="bottom" constant="100" id="LdC-Lt-CP9"/>
-                            <constraint firstItem="hFC-4s-yaK" firstAttribute="top" secondItem="Dq3-Wy-Mgy" secondAttribute="top" constant="-10" id="Myp-5J-sYe"/>
-                            <constraint firstItem="FSR-Pr-IHg" firstAttribute="top" secondItem="hFC-4s-yaK" secondAttribute="bottom" constant="70" id="oMb-2F-NDl"/>
+                            <constraint firstItem="sSz-sq-1b3" firstAttribute="bottom" secondItem="Dq3-Wy-Mgy" secondAttribute="bottom" constant="-100" id="LdC-Lt-CP9"/>
+                            <constraint firstItem="hFC-4s-yaK" firstAttribute="top" secondItem="Dq3-Wy-Mgy" secondAttribute="top" id="Myp-5J-sYe"/>
+                            <constraint firstItem="FSR-Pr-IHg" firstAttribute="top" secondItem="hFC-4s-yaK" secondAttribute="bottom" constant="50" id="oMb-2F-NDl"/>
                             <constraint firstItem="FSR-Pr-IHg" firstAttribute="centerX" secondItem="eGP-Vn-n9D" secondAttribute="centerX" id="s0R-E1-14f"/>
                         </constraints>
                     </view>
@@ -247,7 +247,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cw7-nh-iAL" userLabel="Flashlight Button">
-                                        <rect key="frame" x="226.66666666666663" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="226.66666666666666" y="0.0" width="49.999999999999972" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="Dg8-iA-xdu"/>
                                             <constraint firstAttribute="height" constant="50" id="xRX-cK-9kN"/>

@@ -29,6 +29,12 @@ class StartViewController: UIViewController, UITextFieldDelegate {
                                                object: nil)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        connectionCodeTxtFld.text = ""
+    }
+
     @IBAction func launchCallBtnPressed(_ sender: Any) {
         launchCallBtn.isEnabled = false
         if let connectionCode = connectionCodeTxtFld.text {

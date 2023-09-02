@@ -1,6 +1,7 @@
 import UIKit
 import OpenTok
 import os
+import CallKit
 
 class InCallViewController: UIViewController {
     var apiKey: String!
@@ -8,6 +9,7 @@ class InCallViewController: UIViewController {
     var token: String!
     @IBOutlet var fullView: UIView!
     @IBOutlet var pipView: UIView!
+    let callObserver = CXCallObserver()
 
     lazy var session: OTSession = {
         return OTSession(apiKey: apiKey, sessionId: sessionId, delegate: self)!
@@ -128,12 +130,33 @@ class InCallViewController: UIViewController {
             }
         }
     }
+
+    // MARK: - NotificationCenter callbacks
+    @objc func applicationDidBecomeActive(notification: NSNotification) {
+        os_log("Application is back in the foreground", log: .default, type: .debug)
+        session.signal(withType: "appActivity", string: "appActive", connection: nil, error: nil)
+    }
+
+    @objc func applicationDidEnterBackground(notification: NSNotification) {
+        os_log("Application send to background", log: .default, type: .debug)
+        session.signal(withType: "appActivity", string: "appInactive", connection: nil, error: nil)
+    }
 }
 
 // MARK: - OTSession delegate callbacks
 extension InCallViewController: OTSessionDelegate {
     func sessionDidConnect(_ session: OTSession) {
         os_log("Session connected", log: .default, type: .debug)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(applicationDidBecomeActive),
+                                               name: UIApplication.didBecomeActiveNotification,
+                                               object: nil)
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(applicationDidEnterBackground),
+                                               name: UIApplication.didEnterBackgroundNotification,
+                                               object: nil)
+        callObserver.setDelegate(self, queue: nil)
         doPublish()
     }
     
@@ -196,5 +219,22 @@ extension InCallViewController: OTSubscriberDelegate {
     
     func subscriber(_ subscriber: OTSubscriberKit, didFailWithError error: OTError) {
         os_log("Subscriber failed: %@", log: .default, type: .debug, error.localizedDescription)
+    }
+}
+
+// MARK: - CXCallObserverDelegate delegate callbacks
+
+extension InCallViewController: CXCallObserverDelegate {
+
+    func callObserver(_ callObserver: CXCallObserver, callChanged call: CXCall) {
+        if call.isOutgoing == false && call.hasConnected == true && call.hasEnded == false {
+            os_log("incoming call in process", log: .default, type: .debug)
+            session.signal(withType: "phoneCall", string: "inboundCall", connection: nil, error: nil)
+        }
+
+        if call.isOutgoing == false && call.hasEnded == true {
+            os_log("incoming call ended", log: .default, type: .debug)
+            session.signal(withType: "phoneCall", string: "disconnectedCall", connection: nil, error: nil)
+        }
     }
 }

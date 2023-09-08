@@ -171,6 +171,10 @@ extension InCallViewController: OTSessionDelegate {
             doSubscribe(stream)
         }
     }
+
+    func session(_ session: OTSession, receivedSignalType type: String?, from connection: OTConnection?, with message: String?) {
+        os_log("Signal - %@: %@", log: .default, type: .debug, String(type ?? ""), String(message ?? ""))
+    }
     
     func session(_ session: OTSession, streamDestroyed stream: OTStream) {
         os_log("Session streamDestroyed: %@", log: .default, type: .debug, stream.streamId)
@@ -184,8 +188,15 @@ extension InCallViewController: OTSessionDelegate {
     func session(_ session: OTSession, didFailWithError error: OTError) {
         os_log("session Failed to connect: %@", log: .default, type: .debug, error.localizedDescription)
         UIApplication.shared.isIdleTimerDisabled = false
+        removeSpinner()
+
+        let alertCtrl = UIAlertController(title: "Connection Error", message: error.localizedDescription, preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default) { _ in
+            self.navigationController?.popToRootViewController(animated: false)
+        }
+        alertCtrl.addAction(OKAction)
+        self.present(alertCtrl, animated: true, completion: nil)
     }
-    
 }
 
 // MARK: - OTPublisher delegate callbacks

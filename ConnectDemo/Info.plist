@@ -31,5 +31,7 @@
 	<string>$(TOKBOX_SESSIONID)</string>
 	<key>DEMO_TOKBOX_TOKEN</key>
 	<string>$(TOKBOX_TOKEN)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Connect Demo</string>
 </dict>
 </plist>

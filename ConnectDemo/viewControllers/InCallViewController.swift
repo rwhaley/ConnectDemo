@@ -61,6 +61,9 @@ class InCallViewController: UIViewController {
         if error != nil {
             os_log("Error: %@", log: .default, type: .error, String(describing: error))
         }
+
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.viewControllerOrientation = UIInterfaceOrientationMask.portrait
         performSegue(withIdentifier: "showCallEnded", sender: self)
     }
     
